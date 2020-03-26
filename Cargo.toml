@@ -1,0 +1,19 @@
+[package]
+name = "stm32_blink"
+version = "0.1.0"
+authors = ["Olexander Yermakov <olexander.yermakov@gmail.com>"]
+edition = "2018"
+
+[profile.release]
+# optimize for size ('z' would optimize even more)
+opt-level = 's'
+# link with link time optimization (lto).
+lto = true
+# enable debugging in release mode.
+debug = true
+
+[dependencies]
+stm32f1xx-hal = {version = "*", features = ["stm32f103", "rt"]}
+cortex-m-rt = "*"
+cortex-m = "*"
+panic-halt = "*"
